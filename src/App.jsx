@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Mail, ArrowUpRight, Link } from 'lucide-react'; // Added 'Link' icon
+import { Analytics } from "@vercel/analytics/react"
 
 // Project data
 const projects = [
