@@ -383,6 +383,7 @@ function App() {
           <p>&copy; {new Date().getFullYear()} Uday Meka. All rights reserved.</p>
         </footer>
       </div>
+      <Analytics/>
     </div>
   );
 }
