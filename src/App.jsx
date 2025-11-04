@@ -380,7 +380,7 @@ function App() {
         </main>
 
         <footer className="text-center text-gray-500 mt-24 border-t border-gray-800 pt-8">
-          <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Uday Meka. All rights reserved.</p>
         </footer>
       </div>
     </div>
