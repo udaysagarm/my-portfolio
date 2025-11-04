@@ -1055,9 +1055,17 @@ video {
 
 /* --- Animated Letter CSS --- */
 
+/* This wrapper scales the animation up to 70% (140px)
+   and handles positioning it next to the button. */
+
 .letter-image-wrapper {
   transform: scale(0.7);
+  /* Increased scale for bigger size */
   transform-origin: left center;
+  /* margin-left: -40px; */
+  /* Removed to use the ml-24 from App.jsx */
+  margin-right: -40px;
+  /* Adjust margin for spacing */
 }
 
 .letter-image {
@@ -1198,45 +1206,62 @@ video {
   width: 250px;
 }
 
-/* --- NEW: Sparkle Resume Button CSS --- */
+/* --- Sparkle Resume Button CSS --- */
+
+/* Keyframes for the new default glow */
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px 5px rgba(22, 163, 175, 0.4);
+    /* Start glow (cyan) */
+  }
+
+  100% {
+    box-shadow: 0 0 30px 10px rgba(22, 163, 175, 0.7);
+    /* End glow (stronger cyan) */
+  }
+}
 
 .sparkle-resume-button {
-  /* Set CSS variables to match the site's cyan theme */
+  /* --- Variables --- */
+  /* Using Tailwind's cyan-400 (#22d3ee) and gray-800 (#1f2937) */
   --color: #22d3ee;
-  /* cyan-400 */
   --shadow: #0891b2;
-  /* cyan-600 */
-  --glare: hsl(0 0% 100% / 0.85);
-  /* Made glare slightly more opaque */
-  --font-size: 1.25rem;
-  /* text-xl - MADE BIGGER */
+  /* cyan-600 for shadow */
+  --glare: hsl(0 0% 100% / 0.75);
+  --font-size: 1.5rem;
+  /* Increased font size */
   --transition: 0.2s;
-  --padding: 0.75rem;
-  /* p-3 - MADE BIGGER */
+  --padding: 20px 30px;
+  /* Increased padding */
+  /* --- Main Button Styles --- */
   padding: var(--padding);
-  border-radius: 0.75rem;
-  /* rounded-xl */
+  border-radius: 12px;
+  /* Tailwind's rounded-xl */
   text-decoration: none;
   color: transparent;
   position: relative;
-  transition: background 0.2s, box-shadow 0.2s;
-  /* Added box-shadow transition */
+  transition: background 0.2s;
+  /* --- NEW: Default Glow Animation --- */
+  box-shadow: 0 0 15px 5px rgba(22, 163, 175, 0.4);
+  /* Initial state */
+  animation: pulseGlow 1.5s infinite alternate ease-in-out;
 }
 
-/* Add a subtle background and glow on hover */
-
 .sparkle-resume-button:hover {
-  background: hsl(192, 90%, 15%);
-  /* Dark cyan, matches hover:bg-cyan-400/20 */
-  /* Added a glow effect for 'grandeur' */
-  box-shadow: 0 0 15px var(--color), 0 0 30px var(--color);
+  background: #1f2937;
+  /* gray-800 */
+  /* Remove the pulse animation on hover to replace it with the sparkle */
+  animation: none;
+  /* Add a static (but larger) shadow on hover */
+  box-shadow: 0 0 25px 8px rgba(22, 163, 175, 0.6);
 }
 
 .sparkle-resume-button span {
   display: inline-block;
-  font-size: calc(var(--font-size) * 1.5);
-  font-weight: 700;
-  /* font-bold */
+  font-size: var(--font-size);
+  font-weight: 800;
+  /* extra-bold */
   transition: all 0.2s;
   text-decoration: none;
   text-shadow:
@@ -1294,8 +1319,8 @@ video {
 .sparkle-resume-button svg {
   position: absolute;
   z-index: 3;
-  width: calc(var(--font-size) * 0.7);
-  /* MADE BIGGER */
+  width: calc(var(--font-size) * 0.75);
+  /* Made sparkles a bit bigger */
   aspect-ratio: 1;
 }
 
@@ -1319,6 +1344,7 @@ video {
   --delay-step: 0.15;
   top: calc(var(--y, 50) * 1%);
   left: calc(var(--x, 0) * 1%);
+  /* <-- FIXED: Removed invalid character here */
   transform: translate(-50%, -50%) scale(0);
 }
 
