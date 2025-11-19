@@ -3,7 +3,7 @@ module.exports = {
   // We are changing this "content" line to be
   // extremely specific, to remove any errors.
   content: [
-    "./src/App.jsx"
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
