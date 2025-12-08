@@ -134,6 +134,12 @@ const certifications = [
     link: ""
   },
   {
+    title: "Cybersecurity Virtual Internship",
+    issuer: "AICTE",
+    date: "2022",
+    link: "https://drive.google.com/file/d/1b0Hz1VsauHrt0tKt94TXclTXHdGDYj_g/view?usp=drive_link"
+  },
+  {
     title: "Machine Learning with Python",
     issuer: "Great Learning",
     date: "2023",
