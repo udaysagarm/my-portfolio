@@ -10,7 +10,6 @@ import Certifications from './components/Certifications';
 import Publications from './components/Publications';
 import ResumeButton from './components/ResumeButton';
 import Background from './components/Background';
-import CustomCursor from './components/CustomCursor';
 import MagneticButton from './components/MagneticButton';
 import ScrollProgress from './components/ScrollProgress';
 import TextScramble from './components/TextScramble';
@@ -321,7 +320,6 @@ function App() {
 
   return (
     <div className="bg-[#050505] min-h-screen text-white selection:bg-cyan-400 selection:text-black">
-      <CustomCursor />
       <ScrollProgress />
       <Background />
       <Navbar />
