@@ -41,6 +41,14 @@ const projects = [
     img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
   },
   {
+    title: "PDF ChatBot",
+    category: "AI / Python",
+    description: "RAG based chatbot for PDFs.",
+    tags: ["Python", "LangChain", "React"],
+    link: "https://github.com/udaysagarm/PDF-Bot",
+    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
+  },
+  {
     title: "Rental Management",
     category: "Enterprise",
     description: "Multi-tiered platform for property management.",
@@ -62,6 +70,18 @@ const experience = [
     ]
   },
   {
+    role: "Full Stack Engineer Intern",
+    company: "DLink Technoligies",
+    period: "2023",
+    desc: [
+      "Developed and deployed full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js), contributing to the development of scalable internal tools.",
+      "Engineered secure user authentication flows and integrated backend APIs, ensuring seamless data communication between the client and server.",
+      "Designed responsive and modern user interfaces using Tailwind CSS, optimizing the frontend for cross-device compatibility and user experience.",
+      "Collaborated with a team of interns to architect and build a cohesive project, gaining hands-on experience in code merging, version control, and peer programming.",
+      "Implemented RESTful API endpoints and managed database connectivity, establishing robust data persistence layers for dynamic application features."
+    ]
+  },
+  {
     role: "Intern",
     company: "Virtusa",
     period: "2023",
@@ -70,7 +90,19 @@ const experience = [
       "Developed and modified core backend services utilizing REST API concepts, with a critical focus on ensuring secure user authentication and data handling for enterprise applications.",
       "Actively involved in the full SDLC, diagnosing and resolving system vulnerabilities and technical issues to improve the stability and performance of the existing application in production."
     ]
-  }
+  },
+  {
+    role: "Software Engineering Intern",
+    company: "Voit Services",
+    period: "2022",
+    desc: [
+      "Collaborated with the engineering team to build and implement responsive User Interface (UI) components using React.js, HTML5, and CSS3, ensuring cross-browser compatibility and visual consistency.",
+      "Streamlined the development lifecycle by utilizing Docker for containerization and Jenkins for Continuous Integration/Continuous Deployment (CI/CD) pipelines.",
+      "Participated in Agile development cycles, tracking tasks and progress via Jira, and actively contributed to daily stand-ups and sprint planning.",
+      "Assisted senior developers in translating design mockups into functional front-end code, focusing on usability standards and improving overall user experience.",
+      "Identified and resolved front-end bugs and layout inconsistencies, gaining hands-on experience with debugging tools to ensure production code quality."
+    ]
+  },
 ];
 
 const education = [
