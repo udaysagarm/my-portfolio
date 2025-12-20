@@ -110,7 +110,7 @@ const education = [
     degree: "Master of Science in Computer Science",
     school: "Michigan Technological University",
     period: "2024 - 2025",
-    gpa: "3.88/4.0"
+    gpa: "3.90/4.0"
   },
   {
     degree: "Bachelor of Technology in Computer Science",
