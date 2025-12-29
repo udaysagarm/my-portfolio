@@ -13,6 +13,7 @@ import Background from './components/Background';
 import MagneticButton from './components/MagneticButton';
 import ScrollProgress from './components/ScrollProgress';
 import TextScramble from './components/TextScramble';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 // --- Data ---
 const projects = [
@@ -359,6 +360,7 @@ function App() {
   return (
     <div className="bg-[#050505] min-h-screen text-white selection:bg-cyan-400 selection:text-black">
       <ScrollProgress />
+      <SpeedInsights />
       <Background />
       <Navbar />
 
