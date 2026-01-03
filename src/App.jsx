@@ -106,7 +106,7 @@ const experience = [
     ]
   },
   {
-    role: "Cyber Security VirtualIntern",
+    role: "Cyber Security Virtual Intern",
     company: "AICTE",
     period: "2022",
     desc: [
