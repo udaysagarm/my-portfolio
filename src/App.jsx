@@ -110,7 +110,7 @@ const experience = [
     company: "AICTE",
     period: "2022",
     desc: [
-
+      "Completed a comprehensive 10-week virtual internship program focused on foundational and advanced Cybersecurity concepts, supported by the Palo Alto Networks Cybersecurity Academy."
     ]
   },
 ];
