@@ -105,6 +105,14 @@ const experience = [
       "Identified and resolved front-end bugs and layout inconsistencies, gaining hands-on experience with debugging tools to ensure production code quality."
     ]
   },
+  {
+    role: "Cyber Security VirtualIntern",
+    company: "AICTE",
+    period: "2022",
+    desc: [
+
+    ]
+  },
 ];
 
 const education = [
