@@ -22,8 +22,8 @@ const projects = [
     title: "Hirely App",
     category: "Full Stack",
     description: "Comprehensive job search platform with scalable backend.",
-    tags: ["React", "Node.js", "MongoDB"],
-    link: "https://github.com/udaysagarm/HirelyApp",
+    tags: ["React", "Node.js", "PostgreSQL", "Docker", "Azure"],
+    link: "hirely-app-dmejhygkeye5c3ag.canadacentral-01.azurewebsites.net",
     img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     category: "Game Dev",
     description: "High-performance VR game with complex puzzle logic.",
     tags: ["Unity", "C#", "VR"],
-    link: "https://drive.google.com/drive/folders/1TiXbQXiv-f8AEWJVOPjbCK9cqtKE21WN?usp=sharing",
+    link: "https://udaysagar.itch.io/escape-room",
     img: "https://images.unsplash.com/photo-1592478411213-61535fdd861d?q=80&w=2070&auto=format&fit=crop"
   },
   {
@@ -73,7 +73,7 @@ const experience = [
   },
   {
     role: "Full Stack Engineer Intern",
-    company: "DLink Technoligies",
+    company: "DLink Technologies",
     period: "2023",
     desc: [
       "Developed and deployed full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js), contributing to the development of scalable internal tools.",
@@ -106,11 +106,15 @@ const experience = [
     ]
   },
   {
-    role: "Cyber Security Virtual Intern",
+    role: "Cyber Security Intern",
     company: "AICTE",
     period: "2022",
     desc: [
-      "Completed a comprehensive 10-week virtual internship program focused on foundational and advanced Cybersecurity concepts, supported by the Palo Alto Networks Cybersecurity Academy."
+      "Completed a internship program focused on foundational and advanced Cybersecurity concepts, supported by the Palo Alto Networks Cybersecurity.",
+      "Identity & Access Management(IAM): Configured and managed security policies and user permissions in virtual environments, directly mirroring Active Directory management tasks.",
+      "Infrastructure Configuration: Implemented and evaluated security protocols for virtualized Windows and Linux systems to maintain platform resilience and protect sensitive data.",
+      "Incident Troubleshooting: Investigated security alerts and technical logs to diagnose and correct system failures, maintaining high availability for end-users and site-managed staff. ",
+      "Gained practical exposure to network security principles, cloud security, and threat prevention strategies through rigorous training modules."
     ]
   },
 ];

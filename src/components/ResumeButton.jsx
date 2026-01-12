@@ -15,6 +15,7 @@ const ResumeButton = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 target="_blank"
+                rel="noreferrer"
             >
                 {/* Animated Gradient Border */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 rounded-full opacity-70 group-hover:opacity-100 blur-[2px] transition duration-500 group-hover:duration-200 animate-gradient-xy"></div>

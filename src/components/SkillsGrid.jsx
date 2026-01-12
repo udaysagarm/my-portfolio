@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
     SiReact, SiNodedotjs, SiPython, SiTensorflow, SiSpringboot,
-    SiDocker, SiGit, SiMongodb, SiPostgresql, SiFirebase,
-    SiTypescript, SiTailwindcss, SiNextdotjs, SiCplusplus,
+    SiGit, SiMongodb, SiPostgresql, SiFirebase,
+    SiTypescript, SiTailwindcss, SiCplusplus,
     SiGo, SiJavascript, SiHtml5, SiCss3, SiFlask, SiVercel, SiDotnet
 } from 'react-icons/si';
 import {
