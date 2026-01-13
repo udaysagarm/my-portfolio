@@ -27,12 +27,12 @@ const projects = [
     img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
   },
   {
-    title: "Escape Room VR",
-    category: "Game Dev",
-    description: "High-performance VR game with complex puzzle logic.",
-    tags: ["Unity", "C#", "VR"],
-    link: "https://udaysagar.itch.io/escape-room",
-    img: "https://images.unsplash.com/photo-1592478411213-61535fdd861d?q=80&w=2070&auto=format&fit=crop"
+    title: "PDF ChatBot",
+    category: "AI / Python",
+    description: "RAG based chatbot for PDFs.",
+    tags: ["Python", "LangChain", "React"],
+    link: "https://github.com/udaysagarm/PDF-Bot",
+    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
   },
   {
     title: "AI Text Detection",
@@ -42,14 +42,7 @@ const projects = [
     link: "#",
     img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
   },
-  {
-    title: "PDF ChatBot",
-    category: "AI / Python",
-    description: "RAG based chatbot for PDFs.",
-    tags: ["Python", "LangChain", "React"],
-    link: "https://github.com/udaysagarm/PDF-Bot",
-    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
-  },
+
   {
     title: "Rental Management",
     category: "Enterprise",
@@ -57,6 +50,14 @@ const projects = [
     tags: ["Java", "Spring Boot", "MySQL"],
     link: "#",
     img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
+  },
+  {
+    title: "Escape Room VR",
+    category: "Game Dev",
+    description: "High-performance VR game with complex puzzle logic.",
+    tags: ["Unity", "C#", "VR"],
+    link: "https://udaysagar.itch.io/escape-room",
+    img: "https://images.unsplash.com/photo-1592478411213-61535fdd861d?q=80&w=2070&auto=format&fit=crop"
   },
 ];
 
