@@ -73,18 +73,6 @@ const experience = [
     ]
   },
   {
-    role: "Full Stack Engineer Intern",
-    company: "DLink Technologies",
-    period: "2023",
-    desc: [
-      "Developed and deployed full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js), contributing to the development of scalable internal tools.",
-      "Engineered secure user authentication flows and integrated backend APIs, ensuring seamless data communication between the client and server.",
-      "Designed responsive and modern user interfaces using Tailwind CSS, optimizing the frontend for cross-device compatibility and user experience.",
-      "Collaborated with a team of interns to architect and build a cohesive project, gaining hands-on experience in code merging, version control, and peer programming.",
-      "Implemented RESTful API endpoints and managed database connectivity, establishing robust data persistence layers for dynamic application features."
-    ]
-  },
-  {
     role: "Intern",
     company: "Virtusa",
     period: "2023",
@@ -147,12 +135,6 @@ const certifications = [
     issuer: "Google",
     date: "2025",
     link: ""
-  },
-  {
-    title: "Cybersecurity Virtual Internship",
-    issuer: "AICTE",
-    date: "2022",
-    link: "https://drive.google.com/file/d/1b0Hz1VsauHrt0tKt94TXclTXHdGDYj_g/view?usp=drive_link"
   },
   {
     title: "Machine Learning with Python",
