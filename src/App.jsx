@@ -256,7 +256,7 @@ const Hero = () => {
           <ResumeButton />
           <div className="w-px h-8 bg-white/20 mx-2"></div>
           <MagneticButton><a href="https://github.com/udaysagarm" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors"><FaGithub /></a></MagneticButton>
-          <MagneticButton><a href="http://linkedin.com/udaymeka" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors"><FaLinkedin /></a></MagneticButton>
+          <MagneticButton><a href="http://linkedin.com/in/udaymeka" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors"><FaLinkedin /></a></MagneticButton>
         </div>
       </div>
     </section>
