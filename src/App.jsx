@@ -22,7 +22,7 @@ const projects = [
     category: "Full Stack",
     description: "Comprehensive job search platform with scalable backend.",
     tags: ["React", "Node.js", "PostgreSQL", "Docker", "Azure"],
-    link: "hirely-app-dmejhygkeye5c3ag.canadacentral-01.azurewebsites.net",
+    link: "https://hirely.azurewebsites.net",
     img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
   },
   {
