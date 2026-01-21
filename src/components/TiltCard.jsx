@@ -1,25 +1,16 @@
 import React, { useRef } from "react";
-import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
 
 const TiltCard = ({ children, className }) => {
     const ref = useRef(null);
-
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    const xSpring = useSpring(x);
-    const ySpring = useSpring(y);
-
-    const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
+    const contentRef = useRef(null);
 
     const handleMouseMove = (e) => {
         if (!ref.current) return;
 
         const rect = ref.current.getBoundingClientRect();
-
         const width = rect.width;
         const height = rect.height;
 
@@ -29,23 +20,23 @@ const TiltCard = ({ children, className }) => {
         const rX = (mouseY / height - HALF_ROTATION_RANGE) * -1;
         const rY = mouseX / width - HALF_ROTATION_RANGE;
 
-        x.set(rX);
-        y.set(rY);
+        ref.current.style.transform = `rotateX(${rX}deg) rotateY(${rY}deg)`;
+        ref.current.style.transition = 'transform 0.1s ease-out';
     };
 
     const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
+        if (!ref.current) return;
+        ref.current.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        ref.current.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     };
 
     return (
-        <motion.div
+        <div
             ref={ref}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
                 transformStyle: "preserve-3d",
-                transform,
             }}
             className={`relative ${className}`}
         >
@@ -61,41 +52,49 @@ const TiltCard = ({ children, className }) => {
             <div style={{ transform: "translateZ(50px)" }}>
                 {children}
             </div>
-        </motion.div>
+        </div>
     );
 };
 
 // Simplified Tilt Card for cleaner integration
 const SimpleTiltCard = ({ children, className }) => {
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
     const ref = useRef(null);
 
-    const mouseX = useSpring(x, { stiffness: 500, damping: 100 });
-    const mouseY = useSpring(y, { stiffness: 500, damping: 100 });
+    function onMouseMove(e) {
+        if (!ref.current) return;
 
-    function onMouseMove({ currentTarget, clientX, clientY }) {
+        const { clientX, clientY, currentTarget } = e;
         const { left, top, width, height } = currentTarget.getBoundingClientRect();
-        x.set(clientX - left - width / 2);
-        y.set(clientY - top - height / 2);
+
+        const x = clientX - left - width / 2;
+        const y = clientY - top - height / 2;
+
+        // Approximate the transform useTransform(mouseY, [-300, 300], [5, -5])
+        // Range mapping: -300 to 300 -> 5 to -5. Slope = -10/600 = -1/60.
+        const rX = y * (-1 / 60);
+        const rY = x * (1 / 60);
+
+        ref.current.style.transform = `rotateX(${rX}deg) rotateY(${rY}deg)`;
+        ref.current.style.transition = 'transform 0.1s ease-out';
     }
 
     return (
-        <motion.div
+        <div
             ref={ref}
             onMouseMove={onMouseMove}
             onMouseLeave={() => {
-                x.set(0);
-                y.set(0);
+                if (ref.current) {
+                    ref.current.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                    ref.current.style.transition = 'transform 0.5s ease-out';
+                }
             }}
             style={{
-                rotateX: useTransform(mouseY, [-300, 300], [5, -5]),
-                rotateY: useTransform(mouseX, [-300, 300], [-5, 5]),
+                transformStyle: 'preserve-3d',
             }}
             className={`perspective-1000 ${className}`}
         >
             {children}
-        </motion.div>
+        </div>
     );
 };
 

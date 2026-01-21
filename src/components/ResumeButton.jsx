@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import { FaFileAlt, FaDownload } from 'react-icons/fa';
 import MagneticButton from './MagneticButton';
 import TextScramble from './TextScramble';
@@ -22,13 +22,11 @@ const ResumeButton = () => {
 
                 {/* Button Content */}
                 <div className="relative px-8 py-4 bg-black rounded-full flex items-center gap-3 border border-white/10 group-hover:border-transparent transition-colors">
-                    <motion.div
-                        animate={{ rotate: isHovered ? 360 : 0 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="text-cyan-400"
+                    <div
+                        className={`text-cyan-400 transition-transform duration-500 ease-in-out ${isHovered ? 'rotate-[360deg]' : 'rotate-0'}`}
                     >
                         {isHovered ? <FaDownload /> : <FaFileAlt />}
-                    </motion.div>
+                    </div>
 
                     <div className="w-24 text-center overflow-hidden">
                         <span className="text-sm font-bold tracking-[0.2em] uppercase text-white group-hover:text-cyan-400 transition-colors">

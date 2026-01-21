@@ -9,6 +9,81 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  .slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-float-1 {
+    animation: float1 20s infinite linear;
+  }
+  
+  .animate-float-2 {
+    animation: float2 25s infinite linear;
+  }
+  
+  .animate-float-3 {
+    animation: float3 15s infinite ease-in-out;
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  .paused {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float1 {
+  0% { transform: scale(1) rotate(0deg) translate(0, 0); }
+  33% { transform: scale(1.2) rotate(90deg) translate(100px, -50px); }
+  66% { transform: scale(1) rotate(0deg) translate(0, 0); }
+  100% { transform: scale(1) rotate(0deg) translate(0, 0); }
+}
+
+@keyframes float2 {
+  0% { transform: scale(1) rotate(0deg) translate(0, 0); }
+  33% { transform: scale(1.3) rotate(-60deg) translate(-150px, 100px); }
+  66% { transform: scale(1) rotate(0deg) translate(0, 0); }
+  100% { transform: scale(1) rotate(0deg) translate(0, 0); }
+}
+
+@keyframes float3 {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.1) translate(50px, 50px); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
 /* --- Animated Letter CSS --- */
 
 /* This wrapper scales the animation up to 70% (140px)

@@ -1,7 +1,6 @@
 
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import SkillsGrid from './components/SkillsGrid';
 import ProjectList from './components/ProjectList';
@@ -44,11 +43,11 @@ const projects = [
   },
 
   {
-    title: "Rental Management",
+    title: "Rental Connect",
     category: "Enterprise",
     description: "Multi-tiered platform for property management.",
     tags: ["Java", "Spring Boot", "MySQL"],
-    link: "#",
+    link: "https://github.com/udaysagarm/RentalConnect",
     img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
   },
   {
@@ -80,18 +79,6 @@ const experience = [
       "Contributed hands-on coding to the Camera Service Center Appointment System, collaborating with cross-functional teams to integrate new business features from design through successful deployment.",
       "Developed and modified core backend services utilizing REST API concepts, with a critical focus on ensuring secure user authentication and data handling for enterprise applications.",
       "Actively involved in the full SDLC, diagnosing and resolving system vulnerabilities and technical issues to improve the stability and performance of the existing application in production."
-    ]
-  },
-  {
-    role: "Software Engineering Intern",
-    company: "Voit Services",
-    period: "2022",
-    desc: [
-      "Collaborated with the engineering team to build and implement responsive User Interface (UI) components using React.js, HTML5, and CSS3, ensuring cross-browser compatibility and visual consistency.",
-      "Streamlined the development lifecycle by utilizing Docker for containerization and Jenkins for Continuous Integration/Continuous Deployment (CI/CD) pipelines.",
-      "Participated in Agile development cycles, tracking tasks and progress via Jira, and actively contributed to daily stand-ups and sprint planning.",
-      "Assisted senior developers in translating design mockups into functional front-end code, focusing on usability standards and improving overall user experience.",
-      "Identified and resolved front-end bugs and layout inconsistencies, gaining hands-on experience with debugging tools to ensure production code quality."
     ]
   },
   {
@@ -169,27 +156,28 @@ const publications = [
 // --- Components ---
 
 const Navbar = () => {
-  const { scrollY } = useScroll();
   const [hidden, setHidden] = React.useState(false);
+  const lastScrollY = React.useRef(0);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious();
-    if (latest > previous && latest > 150) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <motion.nav
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: "-100%" },
-      }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center bg-black/80 backdrop-blur-md border-b border-white/10 text-white"
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center bg-black/80 backdrop-blur-md border-b border-white/10 text-white transition-transform duration-300 ease-in-out ${hidden ? '-translate-y-full' : 'translate-y-0'
+        }`}
     >
       <a href="#home" className="text-3xl font-bold font-['Syne'] tracking-tighter">Home</a>
       <div className="hidden md:flex gap-8">
@@ -199,53 +187,59 @@ const Navbar = () => {
           </MagneticButton>
         ))}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
 const ScrollIndicator = () => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ delay: 1, duration: 1 }}
-    className="flex flex-col items-center gap-4"
+  <div
+    className="flex flex-col items-center gap-4 fade-in"
+    style={{ animationDelay: '1s' }}
   >
     <div className="relative h-16 w-[2px] bg-white/10 overflow-hidden rounded-full">
-      <motion.div
-        animate={{ y: [-64, 64] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-        className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent to-cyan-400"
+      <div
+        className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent to-cyan-400 animate-[scrollIndicator_1.5s_linear_infinite]"
       />
     </div>
     <span className="text-[10px] font-mono text-cyan-400 tracking-[0.3em] uppercase">Scroll</span>
-  </motion.div>
+    <style>{`
+      @keyframes scrollIndicator {
+        0% { transform: translateY(-64px); }
+        100% { transform: translateY(64px); }
+      }
+    `}</style>
+  </div>
 );
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const [offset, setOffset] = React.useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section id="home" className="h-screen flex flex-col justify-center items-center relative overflow-hidden">
-      <motion.div style={{ y: y1 }} className="z-10 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-xl md:text-2xl font-bold text-cyan-400 tracking-[0.5em] mb-4"
+      <div style={{ transform: `translateY(${offset * 0.4}px)` }} className="z-10 text-center transition-transform duration-75 ease-out will-change-transform">
+        <p
+          className="text-xl md:text-2xl font-bold text-cyan-400 tracking-[0.5em] mb-4 fade-in"
+          style={{ animationDelay: '0.5s' }}
         >
           Hello, I'm
-        </motion.p>
+        </p>
         <h1 className="text-[12vw] leading-[0.8] font-bold text-white mix-blend-overlay opacity-50">
           <TextScramble>UDAY</TextScramble>
         </h1>
-      </motion.div>
-      <motion.div style={{ y: y2 }} className="z-20 text-center">
+      </div>
+      <div style={{ transform: `translateY(${offset * -0.3}px)` }} className="z-20 text-center transition-transform duration-75 ease-out will-change-transform">
         <h1 className="text-[12vw] leading-[0.8] font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">
           <TextScramble>MEKA</TextScramble>
         </h1>
-      </motion.div>
+      </div>
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
         <ScrollIndicator />
@@ -264,49 +258,56 @@ const Hero = () => {
 };
 
 
-const About = () => (
-  <section id="about" className="py-32 container mx-auto px-6">
-    <div className="grid md:grid-cols-2 gap-20 mb-24">
-      <div className="p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-md group hover:border-cyan-400/30 transition-colors">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-6xl font-bold mb-10">ABOUT<br />ME</h2>
-        </motion.div>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-xl text-gray-400 leading-relaxed mb-8"
-        >
-          A Computer Science grad student specializing in full-stack architecture, software engineering, and core systems optimization. Motivated by hands-on problem-solving, I apply these fundamentals to challenging real-world needs and am actively looking for new opportunities in the field. </motion.p>
-      </div>
+const About = () => {
+  const ref = React.useRef(null);
+  const [isVisible, setIsVisible] = React.useState(false);
 
-      <div>
-        <h3 className="text-2xl font-bold mb-8 text-cyan-400">Education</h3>
-        <div className="space-y-12">
-          {education.map((edu, i) => (
-            <div key={i} className="border-l-2 border-white/10 pl-8 relative group">
-              <div className="absolute top-0 left-[-5px] w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform" />
-              <h4 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">{edu.degree}</h4>
-              <p className="text-lg text-gray-400 mb-2">{edu.school}</p>
-              <div className="flex justify-between text-gray-500 font-mono text-sm">
-                <span>{edu.period}</span>
-                <span className="text-cyan-400">CGPA: {edu.gpa}</span>
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="about" className="py-32 container mx-auto px-6" ref={ref}>
+      <div className="grid md:grid-cols-2 gap-20 mb-24">
+        <div className={`p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-md group hover:border-cyan-400/30 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+          <div>
+            <h2 className="text-6xl font-bold mb-10">ABOUT<br />ME</h2>
+          </div>
+          <p className={`text-xl text-gray-400 leading-relaxed mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+            A Computer Science grad student specializing in full-stack architecture, software engineering, and core systems optimization. Motivated by hands-on problem-solving, I apply these fundamentals to challenging real-world needs and am actively looking for new opportunities in the field. </p>
+        </div>
+
+        <div>
+          <h3 className="text-2xl font-bold mb-8 text-cyan-400">Education</h3>
+          <div className="space-y-12">
+            {education.map((edu, i) => (
+              <div key={i} className="border-l-2 border-white/10 pl-8 relative group">
+                <div className="absolute top-0 left-[-5px] w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform" />
+                <h4 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">{edu.degree}</h4>
+                <p className="text-lg text-gray-400 mb-2">{edu.school}</p>
+                <div className="flex justify-between text-gray-500 font-mono text-sm">
+                  <span>{edu.period}</span>
+                  <span className="text-cyan-400">CGPA: {edu.gpa}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-
-
-  </section>
-);
+    </section>
+  );
+};
 
 const Contact = () => (
   <section id="contact" className="h-[80vh] flex flex-col justify-center items-center text-center bg-neutral-900 relative overflow-hidden">
@@ -323,7 +324,7 @@ const Contact = () => (
     </div>
 
     <footer className="absolute bottom-10 text-gray-500 text-sm z-10">
-      &copy; {new Date().getFullYear()} Uday Meka. Made with React & Framer Motion.
+      &copy; {new Date().getFullYear()} Uday Meka. Made with React.
     </footer>
   </section>
 );

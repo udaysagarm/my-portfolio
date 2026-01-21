@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import {
     SiReact, SiNodedotjs, SiPython, SiTensorflow, SiSpringboot,
     SiGit, SiMongodb, SiPostgresql, SiFirebase,
@@ -84,35 +84,14 @@ const categories = [
     }
 ];
 
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2
-        }
-    }
-};
-
-const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-};
-
 const SkillsGrid = () => {
     return (
-        <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {categories.map((category, index) => (
-                <motion.div
+                <div
                     key={index}
-                    variants={item}
-                    className="bg-neutral-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-400/30 transition-colors"
+                    className="bg-neutral-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-400/30 transition-colors fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                 >
                     <h4 className="text-2xl font-bold mb-8 text-cyan-400 border-b border-white/10 pb-4 inline-block">
                         {category.title}
@@ -133,9 +112,9 @@ const SkillsGrid = () => {
                             </div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
             ))}
-        </motion.div>
+        </div>
     );
 };
 

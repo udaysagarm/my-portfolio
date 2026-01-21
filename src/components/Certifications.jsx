@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import { FaAward, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Certifications = ({ certifications }) => {
@@ -9,13 +9,10 @@ const Certifications = ({ certifications }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certifications.map((cert, index) => (
-                    <motion.div
+                    <div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="group relative bg-neutral-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-400/30 transition-all hover:-translate-y-2"
+                        className="group relative bg-neutral-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-400/30 transition-all hover:-translate-y-2 fade-in"
+                        style={{ animationDelay: `${index * 0.1}s` }}
                     >
                         <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                             <FaAward className="text-6xl text-cyan-400" />
@@ -38,7 +35,7 @@ const Certifications = ({ certifications }) => {
                                 )}
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
         </section>

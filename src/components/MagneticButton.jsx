@@ -1,34 +1,34 @@
-import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 
 const MagneticButton = ({ children, className, onClick }) => {
     const ref = useRef(null);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (e) => {
         const { clientX, clientY } = e;
         const { left, top, width, height } = ref.current.getBoundingClientRect();
         const x = clientX - (left + width / 2);
         const y = clientY - (top + height / 2);
-        setPosition({ x: x * 0.3, y: y * 0.3 }); // Magnetic strength
+
+        // Direct DOM manipulation for performance
+        ref.current.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        ref.current.style.transition = 'transform 0.1s ease-out';
     };
 
     const handleMouseLeave = () => {
-        setPosition({ x: 0, y: 0 });
+        ref.current.style.transform = 'translate(0px, 0px)';
+        ref.current.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)'; // Spring-like easing
     };
 
     return (
-        <motion.button
+        <button
             ref={ref}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             onClick={onClick}
-            animate={{ x: position.x, y: position.y }}
-            transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
             className={className}
         >
             {children}
-        </motion.button>
+        </button>
     );
 };
 

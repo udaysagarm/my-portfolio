@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import { FaBookOpen, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Publications = ({ publications }) => {
@@ -9,13 +9,10 @@ const Publications = ({ publications }) => {
 
             <div className="max-w-4xl mx-auto space-y-8">
                 {publications.map((pub, index) => (
-                    <motion.div
+                    <div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="group relative bg-neutral-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-400/30 transition-all hover:-translate-y-2"
+                        className="group relative bg-neutral-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-400/30 transition-all hover:-translate-y-2 fade-in"
+                        style={{ animationDelay: `${index * 0.1}s` }}
                     >
                         <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                             <FaBookOpen className="text-6xl text-cyan-400" />
@@ -41,7 +38,7 @@ const Publications = ({ publications }) => {
                                 </a>
                             )}
                         </div>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
         </section>
