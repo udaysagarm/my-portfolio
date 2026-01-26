@@ -285,7 +285,7 @@ const About = () => {
             <h2 className="text-6xl font-bold mb-10">ABOUT<br />ME</h2>
           </div>
           <p className={`text-xl text-gray-400 leading-relaxed mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-            A Computer Science grad student specializing in full-stack architecture, software engineering, and core systems optimization. Motivated by hands-on problem-solving, I apply these fundamentals to challenging real-world needs and am actively looking for new opportunities in the field. </p>
+            A Computer Science graduate specializing in full-stack architecture, software engineering, and core systems optimization. Motivated by hands-on problem-solving, I apply these fundamentals to challenging real-world needs and am actively looking for new opportunities in the field. </p>
         </div>
 
         <div>
