@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Project Space Black: Ghost",
     category: "CLI AI Agent",
-    description: "Comprehensive job search platform with scalable backend.",
+    description: "A self-evolving, terminal-native AI agent.",
     tags: ["Python", "TypeScript", "Textual", "LangGraph", "LangChain",],
     link: "https://spaceblack.info",
     img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
