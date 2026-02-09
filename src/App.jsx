@@ -18,12 +18,36 @@ import { Analytics } from "@vercel/analytics/react"
 // --- Data ---
 const projects = [
   {
+    title: "Project Space Black: Ghost",
+    category: "CLI AI Agent",
+    description: "Comprehensive job search platform with scalable backend.",
+    tags: ["Python", "TypeScript", "Textual", "LangGraph", "LangChain",],
+    link: "https://spaceblack.info",
+    img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
     title: "Hirely App",
     category: "Full Stack",
     description: "Comprehensive job search platform with scalable backend.",
     tags: ["React", "Node.js", "PostgreSQL", "Docker", "Azure"],
     link: "https://hirely.azurewebsites.net",
     img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    title: "Rental Connect",
+    category: "Enterprise",
+    description: "Multi-tiered platform for property management.",
+    tags: ["Java", "Spring Boot", "MySQL"],
+    link: "https://github.com/udaysagarm/RentalConnect",
+    img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
+  },
+  {
+    title: "Escape Room VR",
+    category: "Game Dev",
+    description: "High-performance VR game with complex puzzle logic.",
+    tags: ["Unity", "C#", "VR"],
+    link: "https://udaysagar.itch.io/escape-room",
+    img: "https://images.unsplash.com/photo-1592478411213-61535fdd861d?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "PDF ChatBot",
@@ -41,26 +65,19 @@ const projects = [
     link: "#",
     img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
   },
-
-  {
-    title: "Rental Connect",
-    category: "Enterprise",
-    description: "Multi-tiered platform for property management.",
-    tags: ["Java", "Spring Boot", "MySQL"],
-    link: "https://github.com/udaysagarm/RentalConnect",
-    img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
-  },
-  {
-    title: "Escape Room VR",
-    category: "Game Dev",
-    description: "High-performance VR game with complex puzzle logic.",
-    tags: ["Unity", "C#", "VR"],
-    link: "https://udaysagar.itch.io/escape-room",
-    img: "https://images.unsplash.com/photo-1592478411213-61535fdd861d?q=80&w=2070&auto=format&fit=crop"
-  },
 ];
 
 const experience = [
+  {
+    role: "AI Engineering Extern",
+    company: "Outamation (Extern)",
+    period: "2026",
+    desc: [
+      "During the externship, I'll be developing a Python-based preprocessing pipeline designed to optimize OCR accuracy and transform high-complexity scanned documents into machine-readable datasets.",
+      "Integrating and testing AI models within a full document processing workflow to benchmark performance metrics like extraction speed, accuracy, and formatting reliability.",
+      "Engineering an end-to-end Document Intelligence system utilizing Retrieval-Augmented Generation (RAG) to automate the classification and data extraction of unstructured mortgage 'blob' files.",
+    ]
+  },
   {
     role: "Graduate Teaching Assistant",
     company: "Michigan Tech",
@@ -86,7 +103,7 @@ const experience = [
     company: "AICTE",
     period: "2022",
     desc: [
-      "Completed a internship program focused on foundational and advanced Cybersecurity concepts, supported by the Palo Alto Networks Cybersecurity.",
+      "Completed an internship program focused on foundational and advanced Cybersecurity concepts, supported by the Palo Alto Networks Cybersecurity.",
       "Identity & Access Management(IAM): Configured and managed security policies and user permissions in virtual environments, directly mirroring Active Directory management tasks.",
       "Infrastructure Configuration: Implemented and evaluated security protocols for virtualized Windows and Linux systems to maintain platform resilience and protect sensitive data.",
       "Incident Troubleshooting: Investigated security alerts and technical logs to diagnose and correct system failures, maintaining high availability for end-users and site-managed staff. ",
@@ -285,7 +302,7 @@ const About = () => {
             <h2 className="text-6xl font-bold mb-10">ABOUT<br />ME</h2>
           </div>
           <p className={`text-xl text-gray-400 leading-relaxed mb-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-            A Computer Science graduate specializing in full-stack architecture, software engineering, and core systems optimization. Motivated by hands-on problem-solving, I apply these fundamentals to challenging real-world needs and am actively looking for new opportunities in the field. </p>
+            An Open-source Developer and has Master's in Computer Science from Michigan Tech. Specializing in Agentic AI, full-stack architecture, software engineering, and core systems optimization. Motivated by hands-on problem-solving, I apply these fundamentals to challenging real-world needs and am actively looking for new opportunities in the field. </p>
         </div>
 
         <div>
