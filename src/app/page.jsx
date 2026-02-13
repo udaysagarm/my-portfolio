@@ -13,7 +13,6 @@ import Publications from '../components/Publications';
 // import ScrollProgress from '../components/ScrollProgress'; // Removed
 // import TextScramble from '../components/TextScramble'; // Removed
 import { SpeedInsights } from "@vercel/speed-insights/react"
-import { SpeedInsights } from "@vercel/speed-insights/react"
 
 // New Components
 import Navbar from '../components/Navbar';
