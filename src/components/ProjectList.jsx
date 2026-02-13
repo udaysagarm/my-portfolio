@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
 
 const ProjectList = ({ projects }) => {
@@ -22,10 +22,12 @@ const ProjectList = ({ projects }) => {
                     >
                         {/* Image Container */}
                         <div className="relative aspect-[4/3] overflow-hidden bg-white/5 mb-6">
-                            <img
+                            <Image
                                 src={project.img || "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"}
                                 alt={project.title}
-                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                fill
+                                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                             {/* Overlay */}
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />

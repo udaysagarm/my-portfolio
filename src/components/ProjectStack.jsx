@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Card = ({ i, title, description, tags, link, img, progress, targetScale }) => {
     // Determine scale based on progress
@@ -74,10 +75,12 @@ const Card = ({ i, title, description, tags, link, img, progress, targetScale })
                         <div
                             className="w-full h-full"
                         >
-                            <img
+                            <Image
                                 src={img}
                                 alt={title}
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                                fill
+                                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                                sizes="(max-width: 768px) 100vw, 600px"
                             />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-transparent to-transparent" />
