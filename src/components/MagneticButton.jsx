@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from 'react';
 
 const MagneticButton = ({ children, className, onClick }) => {

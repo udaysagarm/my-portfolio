@@ -1,43 +1,32 @@
-import React from 'react';
+"use client";
 
-import { FaBookOpen, FaExternalLinkAlt } from 'react-icons/fa';
+import React from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const Publications = ({ publications }) => {
     return (
-        <section id="publications" className="py-32 container mx-auto px-6 bg-neutral-900/30">
-            <h2 className="text-6xl font-bold mb-16 text-center"><span className="text-cyan-400">PUBLICATIONS</span> & RESEARCH</h2>
+        <section id="publications" className="section-padding container-wide">
+            <div className="mb-12 border-b border-white/10 pb-4">
+                <h2 className="text-3xl font-bold tracking-tighter">Publications</h2>
+            </div>
 
-            <div className="max-w-4xl mx-auto space-y-8">
+            <div className="space-y-8">
                 {publications.map((pub, index) => (
-                    <div
-                        key={index}
-                        className="group relative bg-neutral-900/50 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-cyan-400/30 transition-all hover:-translate-y-2 fade-in"
-                        style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <FaBookOpen className="text-6xl text-cyan-400" />
-                        </div>
-
-                        <div className="relative z-10">
-                            <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                                <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors max-w-2xl">{pub.title}</h3>
-                                <span className="text-sm font-mono text-cyan-400 border border-cyan-400/20 px-3 py-1 rounded-full whitespace-nowrap">{pub.date}</span>
-                            </div>
-
-                            <p className="text-lg text-gray-300 mb-2 font-medium">{pub.journal}</p>
-                            <p className="text-gray-400 leading-relaxed mb-6">{pub.description}</p>
-
-                            {pub.link && (
-                                <a
-                                    href={pub.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-cyan-400 transition-colors"
-                                >
-                                    Read Paper <FaExternalLinkAlt size={10} />
+                    <div key={index} className="group">
+                        <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
+                            <h3 className="text-2xl font-bold text-white group-hover:text-[var(--accent)] transition-colors">
+                                <a href={pub.link} target="_blank" rel="noreferrer" className="flex items-center gap-3">
+                                    {pub.title}
+                                    <FaExternalLinkAlt className="text-xs opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </a>
-                            )}
+                            </h3>
+                            <span className="font-mono text-sm text-[var(--muted)]">{pub.date}</span>
                         </div>
+
+                        <p className="text-lg italic text-[var(--muted)] mb-3">{pub.journal}</p>
+                        <p className="text-[var(--muted)] leading-relaxed max-w-3xl">
+                            {pub.description}
+                        </p>
                     </div>
                 ))}
             </div>

@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Editorial Palette */
+  --background: #050505;
+  /* Deep Matte Black */
+  --foreground: #ffffff;
+  /* Pure White */
+  --muted: #a1a1aa;
+  /* Neutral 400 */
+  --accent: #3b82f6;
+  /* Blue 500 - Electric Blue */
+
+  --font-syne: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased overflow-x-hidden selection:bg-[var(--accent)] selection:text-white;
+    font-feature-settings: "salt";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans tracking-tight;
+  }
+}
+
+@layer components {
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    color: transparent;
+  }
+
+  .text-outline-hover:hover {
+    -webkit-text-stroke: 1px var(--accent);
+    color: transparent;
+  }
+
+  .bg-grid-white {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .nav-link {
+    @apply text-sm uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 bg-white text-black font-bold uppercase tracking-wider text-xs hover:bg-gray-200 transition-colors duration-300;
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider text-xs hover:bg-white hover:text-black transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Reveal Animation Utility */
+  .reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  /* Custom Keyframe Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    /* Star hidden */
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+}

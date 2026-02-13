@@ -1,0 +1,30 @@
+
+> my-portfolio@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+ ⨯ ESLint: Failed to load config "react-app" to extend from. Referenced from: /Users/udaysagar/portfolio/my-portfolio/package.json
+   Collecting page data ...
+   Generating static pages (0/4) ...
+   Generating static pages (1/4) 
+   Generating static pages (2/4) 
+   Generating static pages (3/4) 
+ ✓ Generating static pages (4/4)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    34.2 kB         122 kB
+└ ○ /_not-found                          873 B          88.7 kB
++ First Load JS shared by all            87.8 kB
+  ├ chunks/117-276442e40c3bf6f3.js       32.2 kB
+  ├ chunks/fd9d1056-72ef1b92e01f1388.js  53.6 kB
+  └ other shared chunks (total)          1.92 kB
+
+
+○  (Static)  prerendered as static content
+
